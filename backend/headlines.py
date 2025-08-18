@@ -1,13 +1,13 @@
 import yfinance as yf
-from datetime import datetime
+from datetime import date, datetime
 
-def get_headlines(symbol: str, datetime: date):
+def get_headlines(symbol: str, dt: date):
     ticker = yf.Ticker(symbol)
     news = ticker.news 
 
     news_sorted = sorted(news, key=lambda x: x['providerPublishTime'], reverse=True)
     
-    target_date_str = target_date.strftime("%Y-%m-%d")
+    target_date_str = dt.strftime("%Y-%m-%d")
     headlines = []
 
     for item in news_sorted:
