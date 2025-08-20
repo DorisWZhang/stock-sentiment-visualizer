@@ -4,7 +4,6 @@ from backend.stock import get_stock_prices
 from backend.headlines import get_headlines
 from backend.sentiment import get_total_sentiments_score
 
-
 app = FastAPI()
 
 @app.get("/stock_data")
