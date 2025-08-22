@@ -1,8 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import symbolName from '../assets/symbolToName';
 
 const StockCard = ({symbol}) => {
+  const navigate = useNavigate();
   const companyName = symbolName[symbol] || symbol;
+  
+  const handleClick = () => {
+    navigate(`/stockpage/${symbol}`);
+  };
   
   return (
     <div 
@@ -17,8 +23,10 @@ const StockCard = ({symbol}) => {
         height: '120px',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-start'
+        justifyContent: 'flex-start',
+        cursor: 'pointer'
       }}
+      onClick={handleClick}
     >
       <div style={{fontWeight: 'bold', fontSize: '18px'}}>{symbol}</div>
       <div style={{color: '#666', fontSize: '14px'}}>{companyName}</div>
